@@ -5,9 +5,8 @@ from phonenumbers import parse, is_valid_number
 
 
 def set_pure_phone_numbeer(apps, schema_editor):
-    flat = apps.get_model('property', 'Flat')
-    flats = flat.objects.all()
-    for flat in flats:
+    Flat = apps.get_model('property', 'Flat')
+    for flat in Flat.objects.all():
         if is_valid_number(parse(flat.owners_phonenumber, 'RU')):
             phone_number = flat.owners_phonenumber
             flat.owners_pure_phonenumber = f'+7{parse(phone_number, "RU").national_number}'

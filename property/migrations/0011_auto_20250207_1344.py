@@ -4,10 +4,10 @@ from django.db import migrations
 
 
 def create_existing_owners(apps, schema_editor):
-    flats_model = apps.get_model('property', 'Flat')
-    owner_model = apps.get_model('property', 'Owner')
-    for flat in flats_model.objects.all():
-        owner, _ = owner_model.objects.get_or_create(
+    Flats_model = apps.get_model('property', 'Flat')
+    Owner_model = apps.get_model('property', 'Owner')
+    for flat in Flats_model.objects.all():
+        owner, _ = Owner_model.objects.get_or_create(
             name=flat.owner,
             phonenumber=flat.owners_phonenumber,
             pure_phonenumber=flat.owners_pure_phonenumber
