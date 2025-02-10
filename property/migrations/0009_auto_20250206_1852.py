@@ -13,7 +13,7 @@ def set_pure_phone_numbeer(apps, schema_editor):
             flat.owners_pure_phonenumber = format_number(
                 parsed_number, PhoneNumberFormat.E164)
         else:
-            flat.owners_pure_phonenumber = ''
+            flat.owners_pure_phonenumber = None
         flat.save()
 
 
